@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "GET Usuários: https://api-restiful.vercel.app//usuarios" });
+  res.json({ message: "GET Usuários: https://api-restiful.vercel.app/usuarios" });
 });
 
 app.post('/usuario', async (req, res) => {
