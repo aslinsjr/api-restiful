@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "Oá Mundo!" });
+  res.json({ message: "Oá Mundo! \n GET Usuários - /usuarios" });
 });
 
 app.post('/usuario', async (req, res) => {
