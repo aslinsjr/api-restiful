@@ -36,21 +36,21 @@ app.get("/", (req, res) => {
 });
 
 app.post('/usuario', async (req, res) => {
-  const { nome, sobrenome, idade, cpf, saldo, tranzacoes} = req.body
+  const { nome, nascimento, email, telefone, senha} = req.body
 
   const usuario = {
     nome,
-    sobrenome,
-    idade,
-    cpf,
-    saldo,
-    tranzacoes
+    nascimento,
+    email,
+    telefone,
+    senha
   }
 
   try {
     await Usuario.create(usuario)
 
     res.status(201).json({ message: 'Elemento inserido no sistema com sucesso!' })
+    
   } catch (error) {
     res.status(500).json({ erro: error })
   }
