@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile("https://www.linkedin.com/in/aslinsjr/", { root: __dirname });
+  res.send("API Rest Mascots");
 });
 
 // Rotas Usuário
