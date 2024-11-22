@@ -36,7 +36,9 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("API Rest Mascots");
+  res.send(<>
+    <p>API Rest Mascots</p>
+  </>);
 });
 
 // Rotas Usuário
