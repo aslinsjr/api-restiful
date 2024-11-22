@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile("https://www.linkedin.com/in/aslinsjr/");
+  res.sendFile("https://www.linkedin.com/in/aslinsjr/", { root: __dirname });
 });
 
 // Rotas Usuário
