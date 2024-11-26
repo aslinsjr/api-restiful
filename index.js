@@ -321,6 +321,8 @@ app.get('/atendimentos', async (req, res) => {
 })
 
 app.get('/atendimento/:id', async (req, res) => {
+  const id = req.params.id
+  
   try {
     const atendimento = await Atendimento.findOne({ _id: id })
 
