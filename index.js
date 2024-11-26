@@ -320,6 +320,16 @@ app.get('/atendimentos', async (req, res) => {
   }
 })
 
+app.get('/atendimento/:id', async (req, res) => {
+  try {
+    const atendimento = await Atendimento.findOne({ _id: id })
+
+    res.status(200).json(atendimento)
+  } catch (error) {
+    res.status(500).json({ erro: error })
+  }
+})
+
 app.patch('/atendimento/:id', async (req, res) => {
   const id = req.params.id
 
@@ -353,14 +363,14 @@ app.delete('/atendimento/:id', async (req, res) => {
   const atendimento = await Atendimento.findOne({ _id: id })
 
   if (!atendimento) {
-    res.status(422).json({ message: 'Usuário não encontrado!' })
+    res.status(422).json({ message: 'Atendimento não encontrado!' })
     return
   }
 
   try {
     await Atendimento.deleteOne({ _id: id })
 
-    res.status(200).json({ message: 'Usuário removido com sucesso!' })
+    res.status(200).json({ message: 'Atendimento removido com sucesso!' })
   } catch (error) {
     res.status(500).json({ erro: error })
   }
