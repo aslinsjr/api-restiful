@@ -359,8 +359,8 @@ app.patch('/atendimento/:id', async (req, res) => {
   }
 })
 
-app.delete('/atendimento/:id', async (req, res) => {
-  const id = req.params.id
+app.post('/atendimento/delete', async (req, res) => {
+  const id = req.body
 
   const atendimento = await Atendimento.findOne({ _id: id })
 
@@ -377,6 +377,25 @@ app.delete('/atendimento/:id', async (req, res) => {
     res.status(500).json({ erro: error })
   }
 })
+
+// app.delete('/atendimento/:id', async (req, res) => {
+//   const id = req.params.id
+
+//   const atendimento = await Atendimento.findOne({ _id: id })
+
+//   if (!atendimento) {
+//     res.status(422).json({ message: 'Atendimento não encontrado!' })
+//     return
+//   }
+
+//   try {
+//     await Atendimento.deleteOne({ _id: id })
+
+//     res.status(200).json({ message: 'Atendimento removido com sucesso!' })
+//   } catch (error) {
+//     res.status(500).json({ erro: error })
+//   }
+// })
 
 // Rotas Internacao
 app.post('/internacao', async (req, res) => {
