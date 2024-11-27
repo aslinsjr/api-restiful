@@ -359,7 +359,7 @@ app.get('/atendimentos', async (req, res) => {
 //   }
 // })
 
-app.post('/atendimento/delete', async (req, res) => {
+app.post('/delete', async (req, res) => {
   const id = req.body
 
   const atendimento = await Atendimento.findOne({ _id: id })
