@@ -320,44 +320,44 @@ app.get('/atendimentos', async (req, res) => {
   }
 })
 
-app.get('/atendimento/:id', async (req, res) => {
-  const id = req.params.id
+// app.get('/atendimento/:id', async (req, res) => {
+//   const id = req.params.id
   
-  try {
-    const atendimento = await Atendimento.findOne({ _id: id })
+//   try {
+//     const atendimento = await Atendimento.findOne({ _id: id })
 
-    res.status(200).json(atendimento)
-  } catch (error) {
-    res.status(500).json({ erro: error })
-  }
-})
+//     res.status(200).json(atendimento)
+//   } catch (error) {
+//     res.status(500).json({ erro: error })
+//   }
+// })
 
-app.patch('/atendimento/:id', async (req, res) => {
-  const id = req.params.id
+// app.patch('/atendimento/:id', async (req, res) => {
+//   const id = req.params.id
 
-  const { dia, hora, paciente, type, servicos } = req.body
+//   const { dia, hora, paciente, type, servicos } = req.body
 
-  const atendimento = {
-    dia,
-    hora,
-    paciente,
-    type,
-    servicos,
-  }
+//   const atendimento = {
+//     dia,
+//     hora,
+//     paciente,
+//     type,
+//     servicos,
+//   }
 
-  try {
-    const updatedUser = await Atendimento.updateOne({ _id: id }, atendimento)
+//   try {
+//     const updatedUser = await Atendimento.updateOne({ _id: id }, atendimento)
 
-    if (updatedUser.matchedCount === 0) {
-      res.status(422).json({ message: 'Usuário não encontrado!' })
-      return
-    }
+//     if (updatedUser.matchedCount === 0) {
+//       res.status(422).json({ message: 'Usuário não encontrado!' })
+//       return
+//     }
 
-    res.status(200).json(atendimento)
-  } catch (error) {
-    res.status(500).json({ erro: error })
-  }
-})
+//     res.status(200).json(atendimento)
+//   } catch (error) {
+//     res.status(500).json({ erro: error })
+//   }
+// })
 
 app.post('/atendimento/delete', async (req, res) => {
   const id = req.body
